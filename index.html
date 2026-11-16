@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-page-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AHEAD — AI Human Empowerment &amp; Development</title>
+<meta name="description" content="AHEAD (AI Human Empowerment & Development) is a student-led initiative with practical AI articles, prompts and step-by-step guides for Marketing, Management, Finance & Accounting and IT.">
+<link rel="canonical" href="https://ahead-international.github.io/">
+<link rel="alternate" hreflang="en" href="https://ahead-international.github.io/">
+<link rel="alternate" hreflang="ar" href="https://ahead-international.github.io/ar/">
+<link rel="alternate" hreflang="x-default" href="https://ahead-international.github.io/">
+<meta property="og:url" content="https://ahead-international.github.io/">
+<meta name="theme-color" content="#0A1020">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AHEAD — AI Human Empowerment & Development">
+<meta property="og:description" content="Practical AI articles, prompts and step-by-step guides for every business function.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A1020'/%3E%3Cpath d='M14 52 L32 14 L50 52' fill='none' stroke='%23EDECE8' stroke-width='5.5' stroke-linejoin='round'/%3E%3Cpath d='M19 44 C29 42 40 34 49 21' fill='none' stroke='%239C9BD3' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#131D30; --space:#0A1020; --space-2:#121A2E;
+  --lav:#9C9BD3; --lav-soft:#C9C8EC; --lav-deep:#6C6BAE;
+  --ivory:#EDECE8; --ivory-2:#F5F4F0; --gray:#8A8B98; --line:rgba(19,29,48,.12);
+  --serif:'Inter', system-ui, sans-serif;
+  --sans:'Inter', system-ui, sans-serif;
+  --ease:cubic-bezier(.22,.8,.2,1);
+}
+html[lang="ar"]{ --serif:'Noto Kufi Arabic', sans-serif; --sans:'Noto Kufi Arabic', sans-serif; }
+.hero-title,.h2,.mhero h1,.ahero h1{letter-spacing:-.025em!important}
+html[lang="ar"] .hero-title,html[lang="ar"] .h2,html[lang="ar"] .mhero h1,html[lang="ar"] .ahero h1{letter-spacing:0!important}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--ivory);color:var(--navy);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--lav);outline-offset:3px;border-radius:6px}
+img,svg{display:block}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;inset-inline:0;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  padding:18px clamp(18px,4vw,48px);transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent;color:var(--ivory)}
+.nav.solid{background:rgba(10,16,32,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:rgba(255,255,255,.08)}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-word{font-family:'Inter',sans-serif;font-weight:300;letter-spacing:.42em;font-size:15px;padding-inline-start:2px}
+.nav-links{display:flex;align-items:center;gap:clamp(14px,2.4vw,32px);font-size:13px;letter-spacing:.06em}
+.nav-links a{opacity:.78;transition:opacity .2s;position:relative;padding:4px 0}
+.nav-links a:hover,.nav-links a.on{opacity:1}
+.nav-links a.on::after{content:"";position:absolute;inset-inline:0;bottom:-4px;height:1px;background:var(--lav)}
+.lang{border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 14px;font-size:12px;letter-spacing:.04em;transition:background .2s,color .2s}
+.lang:hover{background:var(--ivory);color:var(--navy)}
+.menu-btn{display:none;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.3)}
+.menu-btn span{display:block;width:16px;height:1.5px;background:currentColor;margin:4px auto;transition:transform .3s}
+@media (max-width:760px){
+  .menu-btn{display:block}
+  .nav-links{position:fixed;inset:64px 12px auto 12px;flex-direction:column;align-items:stretch;gap:0;background:rgba(10,16,32,.96);
+    border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:10px;opacity:0;pointer-events:none;transform:translateY(-8px);transition:.3s var(--ease)}
+  .nav-links.open{opacity:1;pointer-events:auto;transform:none}
+  .nav-links a{padding:12px 14px;font-size:15px}
+  .nav-links a.on::after{display:none}
+  .lang{margin:6px 14px 8px;text-align:center}
+}
+
+/* ---------- PLANETS ---------- */
+.planet{--light:#ddd;--base:#999;--dark:#333;--glow:rgba(255,255,255,.3);
+  position:relative;border-radius:50%;overflow:hidden;
+  background:radial-gradient(circle at 32% 28%,var(--light) 0%,var(--base) 38%,var(--dark) 78%,#05070d 100%);
+  box-shadow:0 0 60px var(--glow), inset -18px -22px 50px rgba(0,0,0,.55)}
+.planet::before{content:"";position:absolute;inset:-25%;border-radius:50%;
+  background:
+   repeating-linear-gradient(170deg,transparent 0 7%,rgba(255,255,255,.07) 7% 9%,transparent 9% 15%,rgba(0,0,0,.08) 15% 19%),
+   radial-gradient(circle at 70% 60%,rgba(0,0,0,.18),transparent 40%),
+   radial-gradient(circle at 25% 70%,rgba(255,255,255,.10),transparent 30%);
+  animation:spin 90s linear infinite}
+.planet::after{content:"";position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.35),transparent 35%),
+             radial-gradient(circle at 75% 85%,rgba(0,0,0,.55),transparent 55%)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:max(100svh,660px);overflow:hidden;color:var(--ivory);
+  background:radial-gradient(ellipse at 50% 120%,#1b2747 0%,var(--space) 55%,#060912 100%)}
+#stars{position:absolute;inset:0;width:100%;height:100%}
+.hero-inner{position:relative;z-index:3;text-align:center;padding:calc(110px + 4vh) 24px 0;max-width:1000px;margin:0 auto}
+.eyebrow{font-size:12px;letter-spacing:.38em;text-transform:uppercase;color:var(--lav-soft);font-weight:500}
+html[lang="ar"] .eyebrow{letter-spacing:.05em;font-size:14px}
+.hero-title{font-family:var(--serif);font-weight:500;font-size:clamp(46px,9vw,112px);line-height:1.02;margin:14px 0 18px;min-height:1.05em;letter-spacing:.01em}
+html[lang="ar"] .hero-title{font-size:clamp(40px,7.5vw,92px);line-height:1.25}
+.hero-title .w{display:inline-block;white-space:nowrap}
+.hero-title.long{font-size:clamp(40px,6vw,84px)}
+.hero-title .ch{display:inline-block;opacity:0;transform:translateY(.45em);filter:blur(6px);animation:rise .9s var(--ease) forwards;animation-delay:calc(var(--i)*35ms)}
+.hero-title .word{display:inline-block;animation:rise .9s var(--ease) both}
+@keyframes rise{to{opacity:1;transform:none;filter:none}}
+.rule{display:block;width:56px;height:2px;margin:0 auto 18px;background:var(--lav);border-radius:2px}
+.hero-desc{max-width:520px;margin:0 auto 28px;font-size:15px;color:rgba(237,236,232,.78);animation:fade .9s .25s var(--ease) both}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  background:var(--ivory);color:var(--navy);transition:transform .25s var(--ease),box-shadow .25s}
+html[lang="ar"] .btn{letter-spacing:0;font-size:14px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(156,155,211,.35)}
+.btn .arr{transition:transform .25s}
+.btn:hover .arr{transform:translateX(4px)}
+html[dir="rtl"] .btn .arr{transform:scaleX(-1)}
+html[dir="rtl"] .btn:hover .arr{transform:scaleX(-1) translateX(4px)}
+.btn.dark{background:var(--navy);color:var(--ivory)}
+
+.side{position:absolute;z-index:4;top:56%;display:flex;align-items:center;gap:18px;color:var(--ivory);transition:opacity .3s}
+.side .mini{width:110px;height:110px;flex:none}
+.side-label{font-family:var(--serif);font-size:15px;letter-spacing:.28em;text-transform:uppercase;opacity:.85}
+html[lang="ar"] .side-label{letter-spacing:0;font-size:18px}
+.side-prev{inset-inline-start:-48px}
+.side-next{inset-inline-end:-48px;flex-direction:row-reverse}
+.side:hover .side-label{opacity:1;color:var(--lav-soft)}
+.side .mini{transition:transform .5s var(--ease)}
+.side:hover .mini{transform:scale(1.08)}
+.side.swap .mini,.side.swap .side-label{animation:pop .7s var(--ease)}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@media (max-width:760px){
+  .side{top:auto;bottom:calc(19vh + 20px)}
+  .side .mini{width:64px;height:64px}
+  .side-prev{inset-inline-start:-22px}.side-next{inset-inline-end:-22px}
+  .side-label{font-size:11px;letter-spacing:.18em}
+}
+
+.big-wrap{position:absolute;inset:0;z-index:2;pointer-events:none}
+.big{position:absolute;left:50%;bottom:0;width:max(860px,108vw);aspect-ratio:1;
+  transform:translate(-50%,96%) scale(.92);opacity:0;transition:transform 1.4s var(--ease),opacity 1s var(--ease)}
+.big.on{transform:translate(-50%,78%);opacity:1}
+.big .planet{width:100%;height:100%;box-shadow:0 -10px 140px var(--glow),0 0 40px var(--glow)}
+.big .planet::after{display:none}
+.big .planet::before{display:none}
+.big .planet{background:
+  radial-gradient(ellipse 60% 18% at 40% 22%,rgba(255,255,255,.18),transparent 70%),
+  radial-gradient(ellipse 80% 10% at 60% 34%,rgba(0,0,0,.12),transparent 70%),
+  radial-gradient(ellipse 70% 8% at 35% 12%,rgba(0,0,0,.10),transparent 70%),
+  radial-gradient(circle at 38% 18%,var(--light) 0%,var(--base) 30%,var(--dark) 62%,#05070d 90%)}
+@media (max-width:760px){.big.on{transform:translate(-50%,81%)}}
+
+.scroll-cue{position:absolute;z-index:5;left:50%;bottom:22px;transform:translateX(-50%);width:46px;height:46px;border-radius:50%;
+  display:grid;place-items:center;background:rgba(10,16,32,.55);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px);animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translate(-50%,6px)}}
+.dots{position:absolute;z-index:5;left:50%;bottom:84px;transform:translateX(-50%);display:flex;gap:8px}
+.dots button{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3);transition:.3s}
+.dots button.on{width:22px;border-radius:4px;background:var(--lav-soft)}
+
+/* ---------- SECTIONS ---------- */
+section.block{padding:clamp(70px,10vw,120px) clamp(20px,5vw,64px)}
+.wrap{max-width:1160px;margin:0 auto}
+.kicker{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--lav-deep);font-weight:600;margin-bottom:12px}
+html[lang="ar"] .kicker{letter-spacing:0;font-size:14px}
+.h2{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,56px);line-height:1.08;max-width:760px}
+html[lang="ar"] .h2{line-height:1.35}
+.lead{font-size:17px;color:#3c4458;max-width:640px;margin-top:18px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.trio .card{padding:30px 26px;border:1px solid var(--line);border-radius:22px;background:var(--ivory-2)}
+.trio .num{font-family:var(--serif);font-size:15px;color:var(--lav-deep);letter-spacing:.2em}
+.trio h3{font-family:var(--serif);font-weight:500;font-size:30px;margin:10px 0 8px}
+.trio p{color:#4a5165;font-size:15px}
+@media (max-width:800px){.trio{grid-template-columns:1fr}}
+
+.dark-band{background:radial-gradient(ellipse at 80% 0%,#1b2747,var(--space) 60%);color:var(--ivory)}
+.dark-band .kicker{color:var(--lav-soft)}
+.dark-band .lead{color:rgba(237,236,232,.72)}
+.majors{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px;margin-top:48px}
+.mcard{position:relative;display:flex;flex-direction:column;padding:28px 24px 24px;border-radius:24px;min-height:320px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);transition:transform .45s var(--ease),border-color .3s}
+.mcard:hover{transform:translateY(-6px);border-color:rgba(201,200,236,.45)}
+.mcard .planet{width:92px;height:92px;margin-bottom:auto;transition:transform .7s var(--ease)}
+.mcard:hover .planet{transform:scale(1.12) rotate(-8deg)}
+.mcard h3{font-family:var(--serif);font-weight:500;font-size:28px;line-height:1.1;margin:28px 0 8px}
+.mcard p{font-size:14px;color:rgba(237,236,232,.7)}
+.mcard .meta{display:flex;justify-content:space-between;align-items:center;margin-top:18px;font-size:12px;letter-spacing:.08em;color:var(--lav-soft)}
+.mcard.ghost{border-style:dashed;background:none;cursor:default}
+.mcard.ghost:hover{transform:none}
+.ghost-orb{width:92px;height:92px;border-radius:50%;border:1px dashed rgba(201,200,236,.5);margin-bottom:auto;display:grid;place-items:center;font-size:28px;color:var(--lav-soft)}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+@media (max-width:900px){.cards{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.cards{grid-template-columns:1fr}}
+.acard{display:flex;flex-direction:column;padding:26px;border-radius:22px;background:var(--ivory-2);border:1px solid var(--line);transition:transform .35s var(--ease),box-shadow .35s}
+.acard:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(19,29,48,.1)}
+.tagrow{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--gray);margin-bottom:16px}
+.tag{display:inline-flex;align-items:center;gap:7px;padding:4px 11px;border-radius:999px;background:#e3e2ef;color:var(--navy);font-weight:600;font-size:11px;letter-spacing:.04em}
+.tag i{width:8px;height:8px;border-radius:50%;background:var(--c,var(--lav))}
+.acard h3{font-family:var(--serif);font-weight:600;font-size:24px;line-height:1.18;margin-bottom:10px}
+.acard p{color:#4a5165;font-size:14px;flex:1}
+.acard .go{margin-top:20px;font-size:13px;font-weight:600;color:var(--lav-deep)}
+
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+.about-art{aspect-ratio:1;border-radius:28px;background:radial-gradient(circle at 50% 50%,#1b2747,var(--space));position:relative;overflow:hidden;display:grid;place-items:center}
+.orbit{position:absolute;border:1px solid rgba(201,200,236,.18);border-radius:50%;animation:spin linear infinite}
+.orbit .planet{position:absolute;top:-11px;left:calc(50% - 11px);width:22px;height:22px}
+
+.join{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+@media (max-width:860px){.join{grid-template-columns:1fr}}
+form.f{display:grid;gap:14px;background:var(--ivory-2);border:1px solid var(--line);border-radius:24px;padding:28px}
+.f label{font-size:12px;font-weight:600;letter-spacing:.06em;color:#4a5165;display:grid;gap:6px}
+.f input,.f select{font:inherit;font-size:15px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--navy)}
+.f input:focus,.f select:focus{outline:2px solid var(--lav);border-color:transparent}
+.f .btn{justify-content:center;margin-top:4px}
+.thanks{display:none;padding:14px;border-radius:12px;background:#e3e2ef;font-size:14px}
+
+footer{background:#070b16;color:rgba(237,236,232,.7);padding:56px clamp(20px,5vw,64px) 36px;font-size:13px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;align-items:flex-start}
+.foot .tagline{font-family:var(--serif);font-size:22px;color:var(--ivory);margin-top:14px;letter-spacing:.06em}
+.foot a:hover{color:var(--lav-soft)}
+.foot-links{display:grid;gap:8px}
+.proto{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;opacity:.6}
+
+/* ---------- MAJOR PAGE ---------- */
+.mhero{position:relative;overflow:hidden;color:var(--ivory);padding:150px clamp(20px,5vw,64px) 80px;
+  background:radial-gradient(ellipse at 85% 30%,var(--glow2,#1b2747) 0%,var(--space) 55%,#060912 100%)}
+.mhero .wrap{position:relative;z-index:2}
+.mhero .planet{position:absolute;z-index:1;width:min(520px,70vw);height:min(520px,70vw);inset-inline-end:-8vw;top:50%;transform:translateY(-50%);animation:float 9s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(calc(-50% - 14px))}}
+.crumb{font-size:13px;opacity:.75;display:inline-flex;gap:8px;align-items:center;margin-bottom:26px}
+.crumb:hover{opacity:1}
+html[dir="rtl"] .crumb .arr{transform:scaleX(-1)}
+.mhero h1{font-family:var(--serif);font-weight:500;font-size:clamp(46px,8vw,96px);line-height:1.02;max-width:640px;animation:fade 1s var(--ease) both}
+html[lang="ar"] .mhero h1{line-height:1.3}
+.mhero p{max-width:480px;margin-top:20px;color:rgba(237,236,232,.78);font-size:17px;animation:fade 1s .15s var(--ease) both}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.filters button{padding:9px 18px;border-radius:999px;border:1px solid var(--line);font-size:13px;font-weight:600;transition:.2s}
+.filters button.on{background:var(--navy);color:var(--ivory);border-color:var(--navy)}
+.list-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px}
+.note{margin-top:30px;font-size:13px;color:var(--gray);display:flex;gap:8px;align-items:center}
+.note::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lav)}
+
+/* ---------- ARTICLE ---------- */
+
+.ahero{background:var(--space);color:var(--ivory);padding:140px clamp(20px,5vw,64px) 70px;position:relative;overflow:hidden}
+.ahero .planet{position:absolute;width:260px;height:260px;inset-inline-end:-60px;bottom:-90px;opacity:.9}
+.ahero .wrap{max-width:780px;position:relative;z-index:2}
+.ahero h1{font-family:var(--serif);font-weight:500;font-size:clamp(36px,5.5vw,62px);line-height:1.1;margin:18px 0 16px;animation:fade 1s var(--ease) both}
+html[lang="ar"] .ahero h1{line-height:1.4}
+.ahero .tagrow{color:rgba(237,236,232,.65)}
+.ahero .tag{background:rgba(255,255,255,.1);color:var(--ivory)}
+.prose{max-width:780px;margin:0 auto;padding:60px clamp(20px,5vw,0px) 90px}
+.prose h2{font-family:var(--serif);font-weight:600;font-size:28px;margin:44px 0 14px}
+.prose p{font-size:17px;color:#2f374b}
+.prose .intro{font-size:20px;line-height:1.55;color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{padding:7px 14px;border-radius:999px;background:var(--ivory-2);border:1px solid var(--line);font-size:13px}
+ol.steps{list-style:none;counter-reset:s;display:grid;gap:14px}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;padding:18px;border-radius:16px;background:var(--ivory-2);border:1px solid var(--line);font-size:16px}
+ol.steps li::before{content:counter(s);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:var(--ivory);font-family:var(--serif);font-size:18px}
+.prompt{position:relative;padding:22px 22px 22px;border-radius:18px;background:var(--navy);color:var(--ivory);font-size:15px;line-height:1.65}
+.prompt .copy{position:absolute;top:12px;inset-inline-end:12px;padding:6px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.25);font-size:12px}
+.prompt .copy:hover{background:rgba(255,255,255,.1)}
+.prompt p{color:var(--ivory);padding-top:26px;font-size:15px}
+.caution{padding:18px 20px;border-radius:16px;border-inline-start:3px solid var(--lav-deep);background:#e6e5f2;font-size:15px}
+.back{margin-top:56px}
+
+/* ======== LONG-FORM ARTICLES + JOIN ======== */
+.asum{max-width:640px;margin-top:14px;font-size:17px;color:rgba(237,236,232,.75)}
+.prose.long h2{font-family:var(--sans);font-weight:600;font-size:26px;letter-spacing:-.02em}
+.prose.long p{margin-bottom:14px}
+.prose.long .chips{margin-bottom:34px}
+.tbl::after{content:'';display:block}
+.prose h3{font-size:18px;font-weight:600;margin:0 0 6px}
+.blist{list-style:none;display:grid;gap:10px;margin:6px 0 10px}
+.blist li{position:relative;padding-left:22px;font-size:16px;color:#2f374b;line-height:1.6}
+.blist li::before{content:"";position:absolute;left:4px;top:.65em;width:7px;height:7px;border-radius:50%;background:var(--lav-deep)}
+.blist strong,.steps strong{color:var(--navy)}
+.tcards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:640px){.tcards{grid-template-columns:1fr}}
+.tcards>div{padding:20px;border-radius:16px;background:var(--ivory-2);border:1px solid var(--line)}
+.tcards p{font-size:15px!important;margin:0!important}
+.terms{display:grid;gap:12px}
+.terms>div{padding:18px 20px;border-radius:16px;background:var(--ivory-2);border:1px solid var(--line);border-left:3px solid var(--lav-deep)}
+.terms dt{font-weight:600;margin-bottom:4px}
+.terms dd{color:#2f374b}
+.tbl{overflow-x:auto;border-radius:16px;border:1px solid var(--line);background:var(--ivory-2)}
+.tbl table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+.tbl th,.tbl td{padding:13px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.tbl thead th{background:var(--navy);color:var(--ivory);font-weight:600;font-size:13px;letter-spacing:.02em}
+.tbl tbody th{font-weight:600}
+.tbl tr:last-child>*{border-bottom:0}
+.refs{display:grid;gap:10px;padding-left:20px;font-size:14px;color:#4a5165}
+.refs a{color:var(--lav-deep);text-decoration:underline;word-break:break-all}
+.prose .prompt{margin:10px 0 18px}
+.langnote{padding:12px 16px;border-radius:12px;background:#e3e2ef;font-size:14px;margin-bottom:24px!important;font-family:'Noto Kufi Arabic',sans-serif}
+.igcard{padding:34px;border-radius:24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.igicon{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#6C6BAE,#9C9BD3)}
+.ighandle{font-size:22px;font-weight:600;color:var(--ivory)}
+.igcard p{color:rgba(237,236,232,.75)}
+
+/* ======== MEET THE TEAM ======== */
+section[id]{scroll-margin-top:72px}
+.team{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:20px;margin-top:40px}
+.tcard{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:28px 20px 24px;border-radius:24px;background:var(--ivory-2);border:1px solid var(--line);transition:transform .35s var(--ease),box-shadow .35s}
+.tcard:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(19,29,48,.1)}
+.tav{width:128px;height:128px;border-radius:50%;overflow:hidden;margin-bottom:18px;box-shadow:0 0 0 4px var(--ivory-2),0 0 0 6px var(--lav-soft)}
+.tav img{width:100%;height:100%;object-fit:cover;display:block}
+.tav .ini{width:100%;height:100%;display:grid;place-items:center;font-size:40px;font-weight:600;letter-spacing:.02em;color:var(--ivory);background:linear-gradient(135deg,var(--navy),var(--lav-deep))}
+.tcard h3{font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.tcard p{font-size:14px;color:var(--lav-deep);font-weight:500;margin-top:4px}
+.tli{position:absolute;top:16px;inset-inline-end:16px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:var(--navy);background:#e3e2ef;transition:background .2s,color .2s}
+.tli:hover{background:var(--navy);color:var(--ivory)}
+.tjoin{border-style:dashed;background:none}
+.tjoin .ini{background:none!important;color:var(--lav-deep)!important;border:2px dashed var(--lav-deep);border-radius:50%}
+.tjoin p{color:#4a5165;font-weight:400}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.hero-title .ch{opacity:1;transform:none;filter:none}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#home" aria-label="AHEAD home">
+    <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M8 56 L30 10 L52 56" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linejoin="round"/>
+      <path d="M14 46 C26 44 40 34 52 18" fill="none" stroke="#9C9BD3" stroke-width="4" stroke-linecap="round"/>
+      <path d="M55 6 l1.6 4.4 4.4 1.6 -4.4 1.6 -1.6 4.4 -1.6 -4.4 -4.4 -1.6 4.4 -1.6z" fill="#9C9BD3"/>
+    </svg>
+    <span class="brand-word">AHEAD</span>
+  </a>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  <nav class="nav-links" id="navLinks">
+    <a href="#majors" data-t="nav_majors"></a>
+    <a href="#guides" data-t="nav_guides"></a>
+    <a href="#about" data-t="nav_about"></a>
+    <a href="#join" data-t="nav_join"></a>
+    <button class="lang" id="langBtn" data-t="lang_btn"></button>
+  </nav>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="brand" style="color:var(--ivory)">
+          <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 56 L30 10 L52 56" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linejoin="round"/><path d="M14 46 C26 44 40 34 52 18" fill="none" stroke="#9C9BD3" stroke-width="4" stroke-linecap="round"/><path d="M55 6 l1.6 4.4 4.4 1.6 -4.4 1.6 -1.6 4.4 -1.6 -4.4 -4.4 -1.6 4.4 -1.6z" fill="#9C9BD3"/></svg>
+          <span class="brand-word">AHEAD</span>
+        </div>
+        <div class="tagline" data-t="footer_tag"></div>
+      </div>
+      <div class="foot-links" id="footMajors"></div>
+      <div class="foot-links">
+        <a href="#about" data-t="nav_about"></a>
+        <a href="#join" data-t="nav_join"></a>
+        <a href="https://www.instagram.com/ahead_international/" target="_blank" rel="noopener"><span data-t="footer_ig"></span> · @ahead_international</a>
+      </div>
+    </div>
+    <div class="proto"><span>© 2026 AHEAD — AI Human Empowerment &amp; Development</span><a href="https://www.instagram.com/ahead_international/" target="_blank" rel="noopener">instagram.com/ahead_international</a></div>
+  </div>
+</footer>
+
+<script src="team.js"></script>
+<script>
+/* =========================================================
+   CONTENT — edit here. Adding a major = add one object.
+   ========================================================= */
+const MAJORS = [
+  { id:'marketing', c:{light:'#EFE2FA',base:'#A98BD1',dark:'#3B2A63',glow:'rgba(169,139,209,.55)'},
+    name:{en:'Marketing',ar:'التسويق'}, short:{en:'Marketing',ar:'التسويق'},
+    desc:{en:'Use AI to help your marketing team research audiences, plan content and measure campaigns.',ar:'استخدم الذكاء الاصطناعي لمساعدة فريق التسويق على فهم الجمهور وتخطيط المحتوى وقياس نتائج الحملات.'} },
+  { id:'management', c:{light:'#DCE9F8',base:'#6E93C9',dark:'#1E3358',glow:'rgba(110,147,201,.5)'},
+    name:{en:'Management',ar:'الإدارة'}, short:{en:'Management',ar:'الإدارة'},
+    desc:{en:'Use AI to help managers plan projects, run better meetings and make better-informed decisions.',ar:'استخدم الذكاء الاصطناعي لمساعدة المدراء على تخطيط المشاريع وإدارة الاجتماعات بفعالية واتخاذ قرارات مدروسة.'} },
+  { id:'finance', c:{light:'#F6EAD0',base:'#C9A86A',dark:'#5A4322',glow:'rgba(201,168,106,.45)'},
+    name:{en:'Finance & Accounting',ar:'المالية والمحاسبة'}, short:{en:'Finance & Accounting',ar:'المالية والمحاسبة'},
+    desc:{en:'Use AI to help your finance team analyze statements, build models and speed up routine accounting work.',ar:'استخدم الذكاء الاصطناعي لمساعدة الفريق المالي على تحليل القوائم المالية وبناء النماذج وتسريع الأعمال المحاسبية الروتينية.'} },
+  { id:'itm', c:{light:'#D4F2EE',base:'#5FB3AE',dark:'#164846',glow:'rgba(95,179,174,.45)'},
+    name:{en:'Information Technology Management',ar:'إدارة تكنولوجيا المعلومات'}, short:{en:'ITM',ar:'إدارة تكنولوجيا المعلومات'},
+    desc:{en:'Use AI to help your IT team map processes, automate workflows and manage company data responsibly.',ar:'استخدم الذكاء الاصطناعي لمساعدة فريق تكنولوجيا المعلومات على رسم العمليات وأتمتة سير العمل وإدارة بيانات الشركة بمسؤولية.'} },
+];
+
+const GENERAL_TOOLS = ['ChatGPT','Claude','Gemini','Microsoft Copilot'];
+const ARTICLES = [
+ { id:'m1', major:'marketing', type:'guide', mins:6, featured:true, tools:[...GENERAL_TOOLS,'Canva'],
+   title:{en:'Build a month of social content with AI',ar:'خطّط محتوى شهر كامل على وسائل التواصل بمساعدة الذكاء الاصطناعي'},
+   summary:{en:'A four-step workflow to plan a month of posts with AI.',ar:'خطة من أربع خطوات لتحضير منشورات شهر كامل بالذكاء الاصطناعي.'},
+   intro:{en:'Plan four weeks of posts for a brand in under an hour, then refine them with your own judgment.',ar:'خطّط لمنشورات أربعة أسابيع لعلامة تجارية في أقل من ساعة، ثم حسّنها بحسّك الخاص.'},
+   steps:{en:['Describe the brand, audience and goal in two or three sentences.','Ask the AI for a weekly content calendar with themes, formats and posting days.','Review every post idea, cut what doesn’t fit the brand, and adapt the tone.','Track results after each week and feed them back to improve the next plan.'],
+          ar:['صِف العلامة التجارية والجمهور والهدف في جملتين أو ثلاث.','اطلب من الذكاء الاصطناعي تقويم محتوى أسبوعيًا يتضمن المواضيع والأشكال وأيام النشر.','راجع كل فكرة، واحذف ما لا يناسب العلامة التجارية، وعدّل الأسلوب.','تابع النتائج بعد كل أسبوع واستخدمها لتحسين الخطة التالية.']},
+   prompt:{en:'Act as a social media strategist. Create a 4-week Instagram content calendar for a [type of business] targeting [audience]. Include a theme per week, 3 post ideas per week, the format (reel, carousel, story) and a one-line caption idea.',
+           ar:'تصرّف كخبير في استراتيجيات وسائل التواصل. أنشئ تقويم محتوى على إنستغرام لمدة 4 أسابيع لـ[نوع النشاط] يستهدف [الجمهور]. أضف موضوعًا لكل أسبوع، و3 أفكار منشورات أسبوعيًا، والشكل (ريل، منشور متعدد الصور، ستوري)، وفكرة تعليق من سطر واحد.'},
+   caution:{en:'AI ideas can sound generic. Always check facts, keep your brand voice, and never post claims you can’t support.',ar:'قد تبدو أفكار الذكاء الاصطناعي عامة. تحقّق دائمًا من المعلومات، وحافظ على أسلوب علامتك، ولا تنشر ادعاءات لا يمكنك إثباتها.'} },
+ { id:'m2', major:'marketing', type:'article', mins:5, tools:GENERAL_TOOLS,
+   title:{en:'AI for customer research: what works and what doesn’t',ar:'الذكاء الاصطناعي في أبحاث العملاء: ما الذي ينجح وما الذي لا ينجح'},
+   summary:{en:'Where AI speeds up audience research, and where you still need real customers.',ar:'أين يسرّع الذكاء الاصطناعي أبحاث الجمهور، وأين تبقى بحاجة إلى عملاء حقيقيين.'},
+   intro:{en:'AI is great at organizing what you already know about customers, but it cannot replace talking to them.',ar:'الذكاء الاصطناعي ممتاز في تنظيم ما تعرفه عن عملائك، لكنه لا يغني عن التحدث إليهم.'},
+   steps:{en:['Use AI to draft survey and interview questions.','Paste anonymized survey answers and ask for recurring themes.','Turn those themes into draft personas, then test them with real people.'],
+          ar:['استخدم الذكاء الاصطناعي لصياغة أسئلة الاستبيانات والمقابلات.','الصق إجابات الاستبيان بعد إخفاء هوية أصحابها، واطلب استخراج المواضيع المتكررة.','حوّل هذه المواضيع إلى ملامح أولية للعملاء، ثم اختبرها مع أشخاص حقيقيين.']},
+   prompt:{en:'Here are 30 anonymized survey responses about [product]. Group them into the 5 most common themes, with a short summary of each and how often it appears.',
+           ar:'إليك 30 إجابة استبيان مجهولة الهوية حول [المنتج]. صنّفها في أكثر 5 مواضيع تكرارًا، مع ملخص قصير لكل موضوع وعدد مرات ظهوره.'},
+   caution:{en:'AI-generated “customers” are guesses. Treat personas as hypotheses until real data confirms them.',ar:'«العملاء» الذين يولّدهم الذكاء الاصطناعي مجرد تخمينات. تعامل مع هذه الملامح كفرضيات حتى تؤكدها بيانات حقيقية.'} },
+ { id:'g1', major:'management', type:'guide', mins:4, featured:true, tools:GENERAL_TOOLS,
+   title:{en:'Turn meeting notes into action items in minutes',ar:'حوّل ملاحظات الاجتماعات إلى مهام واضحة خلال دقائق'},
+   summary:{en:'Convert messy notes into owners, deadlines and a follow-up email.',ar:'حوّل الملاحظات المبعثرة إلى مسؤوليات ومواعيد نهائية ورسالة متابعة.'},
+   intro:{en:'Good meetings end with clear owners and deadlines. AI can draft them from your raw notes.',ar:'الاجتماعات الجيدة تنتهي بمسؤوليات ومواعيد واضحة، ويمكن للذكاء الاصطناعي صياغتها من ملاحظاتك الأولية.'},
+   steps:{en:['Paste your notes (remove sensitive details first).','Ask for decisions, action items, owners and deadlines in a table.','Check the table with the team and send the AI-drafted follow-up email.'],
+          ar:['الصق ملاحظاتك (بعد حذف التفاصيل الحساسة).','اطلب جدولًا بالقرارات والمهام والمسؤولين والمواعيد النهائية.','راجع الجدول مع الفريق، ثم أرسل رسالة المتابعة التي صاغها الذكاء الاصطناعي.']},
+   prompt:{en:'From these meeting notes, list: 1) decisions made, 2) action items with owner and deadline in a table, 3) open questions. Then draft a short, friendly follow-up email.',
+           ar:'من ملاحظات الاجتماع هذه، اذكر: 1) القرارات المتخذة، 2) المهام مع المسؤول والموعد النهائي في جدول، 3) الأسئلة المفتوحة. ثم اكتب رسالة متابعة قصيرة وودّية.'},
+   caution:{en:'AI may invent owners or dates that were never agreed. Confirm before sending.',ar:'قد يختلق الذكاء الاصطناعي أسماء مسؤولين أو مواعيد لم يُتّفق عليها. تأكّد قبل الإرسال.'} },
+ { id:'g2', major:'management', type:'article', mins:5, tools:[...GENERAL_TOOLS,'Notion','Trello'],
+   title:{en:'Using AI to plan a project timeline',ar:'استخدام الذكاء الاصطناعي لوضع جدول زمني للمشروع'},
+   summary:{en:'Break a project into phases, tasks and realistic deadlines.',ar:'قسّم المشروع إلى مراحل ومهام ومواعيد واقعية.'},
+   intro:{en:'AI gives you a fast first draft of a project plan; your team’s knowledge makes it realistic.',ar:'يقدّم الذكاء الاصطناعي مسودة أولى سريعة لخطة المشروع، ومعرفة فريقك هي ما يجعلها واقعية.'},
+   steps:{en:['Describe the goal, deadline, team size and constraints.','Ask for phases, tasks, dependencies and a week-by-week timeline.','Adjust estimates with your team and move the plan into your task tool.'],
+          ar:['صِف الهدف والموعد النهائي وحجم الفريق والقيود.','اطلب المراحل والمهام والترابط بينها وجدولًا زمنيًا أسبوعيًا.','عدّل التقديرات مع فريقك، ثم انقل الخطة إلى أداة إدارة المهام.']},
+   prompt:{en:'Plan a [project] for a team of [n] people due in [x] weeks. Give phases, tasks, dependencies and a week-by-week timeline. Flag the biggest risks.',
+           ar:'ضع خطة لـ[المشروع] لفريق من [عدد] أشخاص خلال [عدد] أسابيع. حدّد المراحل والمهام والترابط بينها وجدولًا أسبوعيًا، وأشر إلى أكبر المخاطر.'},
+   caution:{en:'AI tends to underestimate how long tasks take. Add buffer time.',ar:'يميل الذكاء الاصطناعي إلى التقليل من الوقت الذي تستغرقه المهام. أضف وقتًا احتياطيًا.'} },
+ { id:'f1', major:'finance', type:'guide', mins:7, featured:true, tools:[...GENERAL_TOOLS,'Excel','Google Sheets'],
+   title:{en:'Analyze a financial statement with AI, step by step',ar:'حلّل قائمة مالية بالذكاء الاصطناعي خطوة بخطوة'},
+   summary:{en:'Calculate key ratios and spot trends, then verify every number.',ar:'احسب النسب الأساسية واكتشف الاتجاهات، ثم تحقّق من كل رقم.'},
+   intro:{en:'AI can explain ratios and trends quickly, as long as you check its math against the source.',ar:'يستطيع الذكاء الاصطناعي شرح النسب والاتجاهات بسرعة، بشرط أن تتحقق من حساباته مقارنةً بالمصدر.'},
+   steps:{en:['Upload or paste the income statement and balance sheet (public data only).','Ask for key ratios — margins, liquidity, leverage — with formulas shown.','Recalculate two or three ratios yourself in a spreadsheet to verify.','Ask the AI to explain the trends in plain language for a short memo.'],
+          ar:['ارفع أو الصق قائمة الدخل والميزانية العمومية (بيانات منشورة فقط).','اطلب النسب الأساسية: هوامش الربح والسيولة والرافعة المالية، مع إظهار المعادلات.','أعد حساب نسبتين أو ثلاث بنفسك في جدول بيانات للتحقق.','اطلب من الذكاء الاصطناعي شرح الاتجاهات بلغة بسيطة لمذكرة قصيرة.']},
+   prompt:{en:'Using the attached statements, calculate gross margin, net margin, current ratio and debt-to-equity for both years. Show each formula and the numbers you used, then summarize the main trend in 3 bullet points.',
+           ar:'باستخدام القوائم المرفقة، احسب هامش الربح الإجمالي وهامش صافي الربح ونسبة التداول ونسبة الدين إلى حقوق الملكية للسنتين. اعرض كل معادلة والأرقام المستخدمة، ثم لخّص الاتجاه الرئيسي في 3 نقاط.'},
+   caution:{en:'AI can make arithmetic and reading errors with tables. Never submit numbers you haven’t checked.',ar:'قد يخطئ الذكاء الاصطناعي في الحساب أو في قراءة الجداول. لا تقدّم أي رقم لم تتحقق منه.'} },
+ { id:'f2', major:'finance', type:'article', mins:5, tools:GENERAL_TOOLS,
+   title:{en:'Where AI helps (and fails) in accounting',ar:'أين يساعد الذكاء الاصطناعي في المحاسبة وأين يخطئ'},
+   summary:{en:'Drafting, explaining and reconciling: a realistic look at AI in accounting.',ar:'الصياغة والشرح والمطابقة: نظرة واقعية إلى الذكاء الاصطناعي في المحاسبة.'},
+   intro:{en:'AI is strong at explaining standards and drafting, weaker at precise calculations and judgment calls.',ar:'الذكاء الاصطناعي قوي في شرح المعايير والصياغة، وأضعف في الحسابات الدقيقة والقرارات التي تتطلب تقديرًا مهنيًا.'},
+   steps:{en:['Use it to explain an accounting standard in simple terms.','Use it to draft journal entry explanations or audit memos.','Keep final calculations, classifications and sign-off with a human.'],
+          ar:['استخدمه لشرح معيار محاسبي بعبارات بسيطة.','استخدمه لصياغة شروحات القيود اليومية أو مذكرات التدقيق.','اترك الحسابات النهائية والتصنيفات والاعتماد النهائي للإنسان.']},
+   prompt:{en:'Explain IFRS 15 revenue recognition to a manager with no accounting background, using one simple example: a phone sold with a 1-year service plan.',
+           ar:'اشرح الاعتراف بالإيرادات وفق المعيار IFRS 15 لمدير ليست لديه خلفية محاسبية، باستخدام مثال بسيط: هاتف يُباع مع خطة خدمة لمدة سنة.'},
+   caution:{en:'Standards change and AI can cite outdated rules. Confirm with the official standard or your professor.',ar:'تتغير المعايير، وقد يستند الذكاء الاصطناعي إلى قواعد قديمة. تأكّد من المعيار الرسمي أو من أستاذك.'} },
+ { id:'i1', major:'itm', type:'guide', mins:6, tools:['Zapier','Make','Power Automate',...GENERAL_TOOLS.slice(0,2)],
+   title:{en:'Automate a repetitive task without code',ar:'أتمِت مهمة متكررة من دون برمجة'},
+   summary:{en:'Use AI to design a simple automation with no-code tools.',ar:'استخدم الذكاء الاصطناعي لتصميم أتمتة بسيطة بأدوات لا تتطلب برمجة.'},
+   intro:{en:'Many repetitive tasks, like copying form answers into a sheet, can be automated in an afternoon.',ar:'كثير من المهام المتكررة، مثل نسخ إجابات النماذج إلى جدول بيانات، يمكن أتمتتها في فترة بعد ظهر واحدة.'},
+   steps:{en:['Write the task down as a list of steps you do by hand.','Ask the AI which no-code tool fits, and to map the trigger and actions.','Build it, test it with sample data, and document how it works.'],
+          ar:['اكتب المهمة كقائمة بالخطوات التي تقوم بها يدويًا.','اسأل الذكاء الاصطناعي عن الأداة المناسبة التي لا تتطلب برمجة، واطلب منه تحديد المحفّز والإجراءات.','نفّذ الأتمتة، واختبرها ببيانات تجريبية، ووثّق طريقة عملها.']},
+   prompt:{en:'I do this task manually every week: [steps]. Suggest a no-code automation using tools like Zapier, Make or Power Automate. Describe the trigger, each action, and what could go wrong.',
+           ar:'أقوم بهذه المهمة يدويًا كل أسبوع: [الخطوات]. اقترح أتمتة لا تتطلب برمجة باستخدام أدوات مثل Zapier أو Make أو Power Automate. صِف المحفّز وكل إجراء وما قد يحدث من أخطاء.'},
+   caution:{en:'Test with fake data first. A broken automation can send wrong emails or overwrite records.',ar:'اختبر أولًا ببيانات وهمية، فالأتمتة المعطّلة قد ترسل رسائل خاطئة أو تمحو سجلات.'} },
+ { id:'i2', major:'itm', type:'article', mins:4, tools:GENERAL_TOOLS,
+   title:{en:'AI and data privacy: rules for business teams',ar:'الذكاء الاصطناعي وخصوصية البيانات: قواعد لفرق العمل'},
+   summary:{en:'What you should never paste into an AI tool, and why.',ar:'ما الذي يجب ألا تلصقه أبدًا في أداة ذكاء اصطناعي، ولماذا.'},
+   intro:{en:'Anything you paste into an AI tool may be stored. Treat it like sending an email outside your company.',ar:'أي شيء تلصقه في أداة ذكاء اصطناعي قد يُحفظ. تعامل مع الأمر كأنك ترسل بريدًا إلكترونيًا إلى خارج شركتك.'},
+   steps:{en:['Never paste passwords, personal IDs or client financial data.','Anonymize names and numbers before asking for analysis.','Check your company’s or university’s AI policy before using a tool for work.'],
+          ar:['لا تلصق أبدًا كلمات المرور أو أرقام الهوية أو البيانات المالية للعملاء.','أخفِ الأسماء والأرقام قبل طلب أي تحليل.','اطّلع على سياسة شركتك أو جامعتك بشأن الذكاء الاصطناعي قبل استخدام أي أداة في العمل.']},
+   prompt:{en:'Rewrite this dataset description so it contains no names, IDs or exact amounts, but keeps the structure I need for analysis: [description].',
+           ar:'أعد صياغة وصف مجموعة البيانات هذه بحيث لا يتضمن أسماء أو أرقام هوية أو مبالغ دقيقة، مع الحفاظ على البنية التي أحتاجها للتحليل: [الوصف].'},
+   caution:{en:'Enterprise and free versions of AI tools handle data differently. Know which one you’re using.',ar:'تختلف طريقة تعامل النسخ المؤسسية والمجانية من أدوات الذكاء الاصطناعي مع البيانات. اعرف أيّها تستخدم.'} },
+];
+
+/* =========================================================
+   AHEAD TEAM CONTENT (Nov 2026). Long-form articles use `body` blocks:
+   {p}, {h}, {h3}, {ul}, {ol}, {cards:[[title,text]]}, {table:{head,rows}},
+   {terms:[[term,def]]}, {callout}, {prompt}, {refs:[{t,u}]}
+   Bodies are English for now (Arabic titles + summaries).
+   ========================================================= */
+const TEAM_ARTICLES = [
+ { id:'it-daily', major:'itm', type:'article', mins:8, featured:true, team:true,
+   title:{en:'AI in the daily work of ITM employees',ar:'الذكاء الاصطناعي في العمل اليومي لموظفي إدارة تكنولوجيا المعلومات'},
+   summary:{en:'Eight everyday tasks where AI helps, what changes before and after, and the risks to manage.',ar:'ثماني مهام يومية يساعد فيها الذكاء الاصطناعي، وما الذي يتغيّر، والمخاطر التي يجب إدارتها.'},
+   body:[
+    {p:'Information Technology Management (ITM) connects technology with business operations, information systems and decision-making. ITM employees work in IT support, business analysis, project coordination, database management, systems administration and technology planning, and AI can now support all of these roles by handling repetitive work, organizing information and preparing material for human review.'},
+    {callout:'Treat AI as an assistant, not as an unquestioned source of truth or a substitute for professional responsibility.'},
+    {h:'Where AI helps in everyday ITM work'},
+    {cards:[
+      ['Data analysis & decisions','Summarize datasets, spot trends and unusual patterns, and draft first reports. Always validate calculations and conclusions against the original data.'],
+      ['Administrative automation','Draft emails, summarize meetings, prepare action lists and first drafts of reports. Participants should review summaries for accuracy.'],
+      ['Project management','Organize requirements, draft timelines, summarize status updates and prepare risk registers. The project manager stays responsible for priorities and deadlines.'],
+      ['Customer service & IT support','Answer routine questions, classify requests, suggest troubleshooting steps and route complex issues. Sensitive or high-impact incidents go to qualified staff.'],
+      ['Communication & writing','Draft professional emails, explain technical topics simply, translate and summarize long documents. Check facts, tone and confidentiality before sending.'],
+      ['Databases & information systems','Explain SQL, draft queries and document system processes. Test queries in a safe environment and run them only with the right permissions.'],
+      ['Cybersecurity & risk','Prioritize alerts, flag unusual activity and summarize incidents. AI output is a signal to investigate, not proof that an incident did or didn’t happen.'],
+      ['HR & employee development','Draft job descriptions, organize training material and summarize anonymized feedback. Hiring and performance decisions need human judgment.']
+    ]},
+    {h:'Daily tasks: with and without AI'},
+    {table:{head:['Daily task','Without AI','With AI assistance'],rows:[
+      ['Email writing','Drafting every message manually','A draft prepared for employee review'],
+      ['Data analysis','Manually reviewing records','Summarizing patterns and suggesting questions'],
+      ['Meetings','Writing notes manually','Drafting minutes and action items'],
+      ['Project coordination','Manually organizing updates','Drafting task lists and status summaries'],
+      ['Customer support','Handling routine questions individually','Suggesting answers and routing requests'],
+      ['Reporting','Building the first draft from scratch','An outline or draft from approved data'],
+      ['Database work','Writing and documenting queries alone','Explaining or drafting queries for testing']]}},
+    {h:'Benefits'},
+    {ul:[['Time savings','less time on repetitive or administrative work.'],['Productivity','faster drafts, summaries and analyses.'],['Access to information','organizational knowledge becomes easier to search and summarize.'],['Decision support','patterns and options surfaced for human consideration.'],['Learning & onboarding','assistants explain procedures to less-experienced employees.']]},
+    {h:'Challenges and risks'},
+    {ul:[['Privacy & confidentiality','never enter confidential, personal or regulated company data into unapproved AI tools.'],['Accuracy','AI can produce incorrect, incomplete or invented information, so check important outputs.'],['Overreliance','too much dependence weakens independent problem-solving and judgment.'],['Bias & fairness','AI can reproduce biases from its training data or design.'],['Cybersecurity','new tools and integrations add security and data-governance risks.'],['Change management','people need training, clear policies and time to adapt.']]},
+    {h:'Further reading'},
+    {ul:[['Brynjolfsson, Li & Raymond','“Generative AI at Work”: an AI assistant raised customer-support productivity on average, with the biggest gains for less-experienced workers.'],['Harvard Business Review (2025)','“Gen AI Makes People More Productive—and Less Motivated.”'],['McKinsey & Company (2025)','“The State of AI in 2025: Agents, Innovation, and Transformation.”'],['OECD (2024)','“Using AI in the Workplace: Opportunities, Risks and Policy Responses.”'],['World Economic Forum (2025)','“The Future of Jobs Report 2025.”'],['Stanford HAI (2025)','“AI Index Report 2025.”']]},
+    {h:'Conclusion'},
+    {p:'AI can support ITM employees across data analysis, administration, project management, support, communication, databases, cybersecurity and employee development. The results depend on the task, the quality of tools and data, training and safeguards. The ITM professionals who stand out will combine technical knowledge, business understanding, critical thinking and responsible AI use.'}
+   ]},
+
+ { id:'it-terms', major:'itm', type:'article', mins:4, team:true,
+   title:{en:'AI in IT operations: key terms and takeaways',ar:'الذكاء الاصطناعي في عمليات تكنولوجيا المعلومات: مصطلحات أساسية وخلاصات'},
+   summary:{en:'Four terms every IT student should know, and what AI really means for IT jobs.',ar:'أربعة مصطلحات يجب أن يعرفها كل طالب في تكنولوجيا المعلومات، وما يعنيه الذكاء الاصطناعي فعلًا لوظائف هذا المجال.'},
+   body:[
+    {p:'In only a few years, AI has gone from an emerging technology to a core part of how IT teams work. It automates routine jobs such as documentation, monitoring and security checks, analyzes large amounts of data, and learns from past incidents, so teams can handle more complex work without growing in size.'},
+    {p:'Documentation is a good example. Keeping IT documentation accurate used to mean slow, manual updates. AI tools can now capture changes as they happen, sort information automatically and keep records current, which makes troubleshooting and onboarding faster.'},
+    {h:'Four terms to know'},
+    {terms:[['Machine learning (ML)','Systems that learn patterns from data and use them to automate tasks.'],['Natural language processing (NLP)','Lets software understand and answer everyday language, for example searching documentation by simply asking a question.'],['Intelligent document processing (IDP)','Combines NLP and machine learning to read, sort and organize the information inside documents.'],['Automation','Handing repetitive steps, like updating records, to software so people can focus on higher-value work.']]},
+    {h:'Four takeaways for IT professionals'},
+    {ol:[['AI is reshaping every IT function.','From networks and security to data analytics and service management, it automates tasks and surfaces insights.'],['It augments people rather than replacing them.','Routine work shifts to AI, freeing IT professionals for planning, system design and creative problem-solving.'],['Responsible use is non-negotiable.','Biased models can lead to unfair outcomes, so AI systems should be transparent and able to explain their decisions.'],['Keep learning.','As AI evolves, continuous upskilling is how IT professionals stay valuable.']]},
+    {refs:[{t:'IT Glue. (2024, November 19). AI in IT: How artificial intelligence is transforming IT operations.',u:'https://www.itglue.com/blog/how-ai-is-transforming-it-operations/'},{t:'University of Cincinnati Online. (n.d.). AI and IT: How artificial intelligence is changing information technology jobs.',u:'https://online.uc.edu/blog/how-ai-is-changing-it-jobs/'}]}
+   ]},
+
+ { id:'it-research', major:'itm', type:'guide', mins:5, team:true, tools:['ChatGPT','Google Gemini','Microsoft Copilot','Google Scholar'],
+   title:{en:'How to use AI for research and academic work',ar:'كيف تستخدم الذكاء الاصطناعي في البحث والعمل الأكاديمي'},
+   summary:{en:'Outline, summarize and find sources with AI, without giving up your own thinking.',ar:'نظّم بحثك ولخّص المصادر وابحث عنها بالذكاء الاصطناعي، من دون أن تتخلى عن تفكيرك المستقل.'},
+   body:[
+    {h:'1. Use AI responsibly'},
+    {p:'Check AI-generated information before it goes into your work: compare important facts with the original sources, confirm that references are real, and fix mistakes. Follow your institution’s rules on AI assistance, acknowledge its use when required, never copy text without attribution, and never paste private or confidential information into tools that aren’t approved for it.'},
+    {h:'2. Write and organize your research'},
+    {p:'Give the AI your research question and ask it to suggest sections, group related ideas, improve the clarity of sentences or check grammar. Then choose the relevant ideas, arrange them logically, and write the final work in your own words. Treat everything AI produces as a draft.'},
+    {h:'3. Create research summaries'},
+    {p:'Share an article or report you’re allowed to share and give a clear instruction: the main topic, key arguments, findings and conclusion, in a set number of words. You can also ask for simple explanations of difficult terms. Always compare the summary with the original to make sure nothing important was dropped or changed.'},
+    {prompt:'Summarize the attached article in 150 words. Cover: 1) the main topic, 2) the key arguments, 3) the most important findings, 4) the conclusion. Then list the 5 most important terms with a one-line simple explanation for each.'},
+    {h:'4. Find reliable information'},
+    {p:'AI is good for exploring a topic, finding keywords, explaining concepts and suggesting questions, but an AI answer is not an academic source. Open and read the original publications, check authors and dates, and make sure claims are backed by evidence. Google Scholar, university websites, official institutions and recognized research organizations are good places to look.'},
+    {h:'5. Pick the right tool'},
+    {p:'ChatGPT, Google Gemini and Microsoft Copilot can explain concepts, brainstorm research questions, summarize text you’re allowed to share, and prepare outlines or first drafts. Google Scholar is the place to search for scholarly articles. Each tool has limits, so match it to the task and verify with trustworthy sources.'}
+   ]},
+
+ { id:'mg-hbs', major:'management', type:'article', mins:4, featured:true, team:true,
+   title:{en:'Four strategies managers can use to lead with AI',ar:'أربع استراتيجيات للمدراء لتوظيف الذكاء الاصطناعي في القيادة'},
+   summary:{en:'Harvard Business School’s framework: AI literacy, clear decision rules, healthy questioning and transparency.',ar:'إطار كلية هارفارد للأعمال: الإلمام بالذكاء الاصطناعي، وقواعد واضحة لاتخاذ القرار، وثقافة التساؤل، والشفافية.'},
+   body:[
+    {p:'According to Harvard Business School Online, managers can use four main strategies to bring AI into their organizations and make better decisions.'},
+    {h:'1. Build AI literacy across the organization'},
+    {ul:['Train employees to understand and use AI tools.','Run workshops and hands-on training sessions.','Encourage people to experiment with AI.','Help teams spot where AI can improve performance.']},
+    {h:'2. Set clear decision-making frameworks'},
+    {ul:['Decide which tasks should be automated with AI.','Use AI to support human decisions (augmentation), not replace them.','Rate tasks by how often they happen and how much value they carry.','Keep human oversight on important decisions.']},
+    {h:'3. Foster a culture of questioning'},
+    {ul:['Encourage employees to question AI recommendations.','Verify AI information before acting on it.','Promote critical thinking and experimentation.','Avoid relying on AI alone for decisions.']},
+    {h:'4. Lead with transparency'},
+    {ul:['Communicate clearly how AI is used in the organization.','Explain which decisions AI influences.','Set accountability for AI-supported decisions.','Make sure AI is used responsibly and openly.']},
+    {h:'Try it: sort your team’s decisions'},
+    {prompt:'Act as an operations manager. List the 10 most frequent decisions a [type of team] makes. For each one, rate how often it happens and how much value it carries, then recommend: automate with AI, use AI to support a human decision, or keep it fully human. Give a one-line reason for each.'},
+    {refs:[{t:'Heinrich, A. (2025, December 18). How managers are using AI to make smarter decisions. Harvard Business School Online.',u:'https://online.hbs.edu/blog/post/ai-in-leadership'}]}
+   ]},
+
+ { id:'fa-guide', major:'finance', type:'guide', mins:10, featured:true, team:true,
+   tools:['Adobe Acrobat AI Assistant','Docparser','Tesseract OCR','Microsoft Copilot in Excel','Tabula','Mathpix','Power Query','QuickBooks','Ramp','Brex','Bill.com','Dext'],
+   title:{en:'AI in finance & accounting: a step-by-step guide',ar:'الذكاء الاصطناعي في المالية والمحاسبة: دليل خطوة بخطوة'},
+   summary:{en:'From pulling data out of PDFs to forecasting, with the tools for each step and where humans must stay in control.',ar:'من استخراج البيانات من ملفات PDF إلى التنبؤ المالي، مع الأدوات المناسبة لكل خطوة، والمواضع التي يجب أن يبقى فيها القرار للإنسان.'},
+   body:[
+    {p:'Management accounting and financial operations have long been slowed down by manual data collection, paper-based documents and backward-looking variance analysis, which makes reporting slow and error-prone (Pavlović et al., 2024). Organizations are now adding AI, specifically machine learning, natural language processing (NLP), optical character recognition (OCR) and robotic process automation (RPA), across their financial and managerial workflows (Abbas, 2026; Pavlović et al., 2024).'},
+    {p:'AI doesn’t replace accounting platforms like QuickBooks, Xero or Bill.com. It works as an intelligent layer on top of them, removing repetitive manual work so finance professionals can focus on strategy (AFP, 2026a). Industry estimates suggest AI adoption in accounting is growing by around 30% a year (Rupareliya, 2026).'},
+    {h:'Step 1 · Data and document management'},
+    {p:'Good analysis starts with clean, structured data (CFI, 2026).'},
+    {ul:[['Extract data from PDFs','AI document parsers read reports, statements and scans and pull out text and figures. Tools: Adobe Acrobat’s AI Assistant, Docparser, Tesseract OCR.'],['Convert document tables into Excel','Turn static tables into editable spreadsheets. Tools: Microsoft Copilot in Excel, Tabula, Mathpix.'],['Clean spreadsheets and find duplicates','Standardize formatting and catch exact or near-duplicate entries. Tools: Excel’s AI features and Power Query.'],['Summarize surveys and create charts','Generative AI and BI tools turn survey files into written insights and bar, pie or line charts.'],['Organize information into categories','Text-classification models group scattered notes and documents into folders, tags or categories.']]},
+    {h:'Step 2 · Finance and accounting support'},
+    {p:'With structured data in place, AI speeds up routine bookkeeping, expense review and financial tracking (Pavlović et al., 2024).'},
+    {ul:[['Categorize expenses','Platforms like Ramp, Brex or QuickBooks read transaction descriptions and map them to ledger categories (travel, software, office supplies).'],['Summarize monthly spending','AI dashboards produce summaries that highlight month-over-month variances and spending trends.'],['Extract invoice data and organize receipts','OCR plus machine learning (e.g. Bill.com, Dext) captures vendor, total and tax amounts and files them digitally.'],['Draft budget reports and spreadsheet formulas','Describe your worksheet and the calculation you need, and Copilot writes the formula with a step-by-step explanation (CFI, 2026).'],['Flag unusual transactions','Machine-learning models compare activity to normal patterns and flag duplicate bills or unusual activity for a human to review.']]},
+    {prompt:'Act as a financial analyst. My worksheet has these columns: [list columns]. Write an Excel formula that calculates the quarterly budget variance for each line, both as an amount (actual minus budget) and as a percentage. Explain each part of the formula step by step.'},
+    {h:'Step 3 · Predictive analytics and strategic management accounting'},
+    {ul:[['Forecasting and scenario modeling','Machine learning analyzes historical data to simulate cash flows, test assumptions, project revenue and improve budgeting accuracy (AFP, 2026a; Pavlović et al., 2024).'],['Dynamic cost management','Algorithms continuously track cost behavior across operations to find savings, instead of relying only on static standard costing (Pavlović et al., 2024).']]},
+    {h:'Step 4 · Decision support and human oversight'},
+    {p:'AI-driven decision support systems turn processed financial data into real-time insights, moving accountants and managers from report production toward advisory work (AFP, 2026a). Because AI can make formula errors, raise false alarms or rely on unsupported assumptions, human judgment remains the key control point.'},
+    {callout:'AI should never approve payments, post final journal entries, sign off on audits or make critical financial decisions without direct human verification and oversight (AFP, 2026b; CFI, 2026).'},
+    {h:'Summary: traditional vs AI-enhanced'},
+    {table:{head:['Stage','Traditional approach','AI-enhanced approach'],rows:[
+      ['Data & documents','Manual data entry, copying tables, visual error checks','OCR extraction, table-to-Excel export, automated cleaning and survey summaries'],
+      ['Finance & accounting support','Manual receipt sorting, hand-written formulas, manual reconciliation','Automated expense sorting, invoice extraction, formulas generated from plain language'],
+      ['Budgeting & forecasting','Backward-looking reviews and static spreadsheets','Predictive cash-flow models, scenario testing, automated variance drafts'],
+      ['Control & governance','Periodic manual audits and reactive error finding','Real-time anomaly flags with mandatory human approval']]}},
+    {refs:[
+      {t:'Abbas, K. (2026). Management accounting and artificial intelligence: A comprehensive literature review and recommendations for future research. The British Accounting Review, 58(2), 101551.',u:'https://doi.org/10.1016/j.bar.2025.101551'},
+      {t:'Association for Financial Professionals. (2026a, August 4). How are finance leaders using AI? Real examples & use cases.',u:'https://www.financialprofessionals.org/training-resources/resources/articles/Details/how-are-finance-leaders-using-ai-real-examples-use-cases'},
+      {t:'Association for Financial Professionals. (2026b). AI in finance: Applications, use cases, examples and benefits.',u:'https://www.financialprofessionals.org/glossary/ai-in-finance'},
+      {t:'Corporate Finance Institute. (2026, November 8). How to use AI in finance: Tips and best practices.',u:'https://corporatefinanceinstitute.com/resources/career/how-to-use-ai-in-finance/'},
+      {t:'Pavlović, M., Gligorić, Č., Zdravković, F., & Pavlović, D. (2024). Revolutionizing management accounting: The role of artificial intelligence in predictive analytics, automated reporting, and decision-making. Business & Management Compass, 68(4), 23–42.',u:'https://doi.org/10.56065/nxn2gx53'},
+      {t:'Rupareliya, P. (2026, October 30). AI in accounting: Practical use cases, examples & tools. Intuz.',u:'https://www.intuz.com/blog/use-cases-of-ai-in-accounting/'}]}
+   ]},
+];
+ARTICLES.unshift(...TEAM_ARTICLES);
+ARTICLES.forEach(a=>{ if(['m1','g1','f1'].includes(a.id)) a.featured=false; });
+
+const T = {
+ en:{nav_majors:'Functions',nav_guides:'Guides',nav_about:'About',nav_join:'Join us',lang_btn:'عربي',
+  eyebrow:'Function',hero_explore:'Explore',hero_prev:'Previous function',hero_next:'Next function',
+  mission_kicker:'Our approach',mission_title:'Practical AI for every business function',
+  mission_text:'AHEAD turns AI from a buzzword into a working skill. Each business function gets clear articles and step-by-step guides built around real tasks, so teams can work smarter and young people can build skills businesses need.',
+  adapt_t:'Adapt',adapt_d:'Understand what AI can and can’t do in each business function.',apply_t:'Apply',apply_d:'Follow hands-on, step-by-step guides for real tasks.',advance_t:'Advance',advance_d:'Improve how your business works, and build skills that stand out.',
+  majors_kicker:'Explore',majors_title:'Choose your orbit',majors_text:'Each business function is its own world of AI articles and how-to guides.',
+  majors_more_t:'More functions soon',majors_more_d:'AHEAD is growing. HR, operations, sales and more will join the system.',count:'{n} resources',
+  featured_kicker:'Start here',featured_title:'Featured guides',
+  about_kicker:'About AHEAD',about_title:'AI Human Empowerment & Development',
+  about_text:'AHEAD is a student-led initiative empowering youth and businesses through AI education. We build digital skills for a more inclusive future, one practical guide at a time.',
+  join_kicker:'Get involved',join_title:'Join the AHEAD community',join_text:'AHEAD is growing. Students, volunteers and partners are welcome to join us.',
+  f_name:'Full name',f_email:'Email',f_major:'Your major',f_other:'Other',f_submit:'Join AHEAD',f_thanks:'Thanks, {name}! (Prototype: sign-ups aren’t connected yet.)',
+  footer_tag:'Adapt. Apply. Advance.',footer_proto:'Prototype · sample content',footer_ig:'Instagram',
+  type_guide:'How-to guide',type_article:'Article',filter_all:'All',min_read:'{n} min read',
+  back_home:'All functions',art_task:'Overview',art_tools:'Tools you can use',art_steps:'Step by step',art_prompt:'Try this prompt',art_caution:'Watch out',copy:'Copy',copied:'Copied',
+  sample_note:'',read:'Read',resources:'Resources',sources:'Sources',en_only:'',ig_text:'Follow us for new guides, workshops and events, and send us a DM to get involved.',ig_btn:'Follow on Instagram',team_kicker:'The people behind AHEAD',team_title:'Meet the team',team_join_t:'Want to join us?',team_join_d:'We’re always looking for people who want to make AI useful.'},
+ ar:{nav_majors:'الوظائف',nav_guides:'الأدلة',nav_about:'من نحن',nav_join:'انضم إلينا',lang_btn:'English',
+  eyebrow:'الوظيفة',hero_explore:'استكشف',hero_prev:'الوظيفة السابقة',hero_next:'الوظيفة التالية',
+  mission_kicker:'نهجنا',mission_title:'ذكاء اصطناعي عملي لكل وظيفة من وظائف الأعمال',
+  mission_text:'تحوّل AHEAD الذكاء الاصطناعي من مصطلح رائج إلى مهارة عملية. لكل وظيفة من وظائف الأعمال مقالات واضحة وأدلة خطوة بخطوة مبنية على مهام حقيقية، لتعمل الفرق بذكاء أكبر ويكتسب الشباب المهارات التي تحتاجها الشركات.',
+  adapt_t:'تكيّف',adapt_d:'افهم ما يستطيع الذكاء الاصطناعي فعله في كل وظيفة من وظائف الأعمال وما لا يستطيعه.',apply_t:'طبّق',apply_d:'اتبع أدلة عملية خطوة بخطوة لمهام حقيقية.',advance_t:'تقدّم',advance_d:'حسّن طريقة عمل شركتك، واكتسب مهارات تميّزك.',
+  majors_kicker:'استكشف',majors_title:'اختر مدارك',majors_text:'كل وظيفة من وظائف الأعمال عالمٌ قائم بذاته من المقالات والأدلة العملية.',
+  majors_more_t:'وظائف أخرى قريبًا',majors_more_d:'AHEAD تنمو، وستنضم الموارد البشرية والعمليات والمبيعات وغيرها إلى المنظومة.',count:'عدد المصادر: {n}',
+  featured_kicker:'ابدأ من هنا',featured_title:'أدلة مختارة',
+  about_kicker:'عن AHEAD',about_title:'تمكين الإنسان وتطويره بالذكاء الاصطناعي',
+  about_text:'AHEAD مبادرة يقودها طلاب، تعمل على تمكين الشباب والشركات من خلال التعليم في مجال الذكاء الاصطناعي. نبني المهارات الرقمية من أجل مستقبل أكثر شمولًا، دليلًا عمليًا تلو الآخر.',
+  join_kicker:'شارك معنا',join_title:'انضم إلى مجتمع AHEAD',join_text:'AHEAD تنمو، ونرحّب بانضمام الطلاب والمتطوعين والشركاء إلينا.',
+  f_name:'الاسم الكامل',f_email:'البريد الإلكتروني',f_major:'تخصصك',f_other:'غير ذلك',f_submit:'انضم إلى AHEAD',f_thanks:'شكرًا يا {name}! (نسخة تجريبية: التسجيل غير مفعّل بعد.)',
+  footer_tag:'تكيّف. طبّق. تقدّم.',footer_proto:'نسخة تجريبية · محتوى نموذجي',footer_ig:'إنستغرام',
+  type_guide:'دليل عملي',type_article:'مقال',filter_all:'الكل',min_read:'مدة القراءة: {n} دقائق',
+  back_home:'كل الوظائف',art_task:'نظرة عامة',art_tools:'أدوات يمكنك استخدامها',art_steps:'خطوة بخطوة',art_prompt:'جرّب هذا الطلب',art_caution:'انتبه',copy:'نسخ',copied:'تم النسخ',
+  sample_note:'',read:'اقرأ',resources:'المصادر',sources:'المراجع',en_only:'هذا المقال متوفر حاليًا باللغة الإنجليزية فقط.',ig_text:'تابعنا لتصلك الأدلة وورش العمل والفعاليات الجديدة، وراسلنا لتنضم إلينا.',ig_btn:'تابعنا على إنستغرام',team_kicker:'الأشخاص وراء AHEAD',team_title:'تعرّف إلى الفريق',team_join_t:'هل تريد الانضمام إلينا؟',team_join_d:'نرحّب دائمًا بمن يريد أن يجعل الذكاء الاصطناعي مفيدًا.'}
+};
+
+/* =========================================================
+   APP
+   ========================================================= */
+const PAGE_LANG = document.documentElement.dataset.pageLang || null;
+let lang = PAGE_LANG || 'en';
+if(!PAGE_LANG){ try{ lang = localStorage.getItem('ahead-lang') || 'en'; }catch(e){} }
+const $ = (s,r=document)=>r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const t = (k,v={}) => (T[lang][k]||k).replace(/\{(\w+)\}/g,(_,x)=>v[x]??'');
+const L = o => o[lang] ?? o.en;
+const major = id => MAJORS.find(m=>m.id===id);
+const pv = m => `--light:${m.c.light};--base:${m.c.base};--dark:${m.c.dark};--glow:${m.c.glow}`;
+const planet = (m,cls='') => `<div class="planet ${cls}" style="${pv(m)}" aria-hidden="true"></div>`;
+const arrow = `<svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+const backArrow = `<svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>`;
+const app = $('#app');
+let heroIdx = 0, heroTimer = null, starsStop = null;
+
+function staticText(){
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang==='ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-t]').forEach(el=>el.textContent=t(el.dataset.t));
+  $('#footMajors').innerHTML = MAJORS.map(m=>`<a href="#major-${m.id}">${esc(L(m.name))}</a>`).join('');
+}
+
+function articleCard(a){
+  const m = major(a.major);
+  return `<a class="acard reveal" href="#article-${a.id}">
+    <div class="tagrow"><span class="tag" style="--c:${m.c.base}"><i></i>${esc(L(m.short))}</span><span>${t(a.type==='guide'?'type_guide':'type_article')} · ${t('min_read',{n:a.mins})}</span></div>
+    <h3>${esc(L(a.title))}</h3><p>${esc(L(a.summary))}</p>
+    <span class="go">${t('read')} →</span></a>`;
+}
+
+/* ---------- HOME ---------- */
+/* ---------- TEAM (data lives in team.js) ---------- */
+function teamRoot(){ const pl=document.documentElement.dataset.pageLang; return pl==='ar' ? '../' : ''; }
+function initials(n){ return String(n||'').trim().split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase() || '?'; }
+function renderTeam(){
+  const g=$('#teamGrid'); if(!g) return;
+  const team=(window.AHEAD_TEAM||[]).filter(p=>p && p.name);
+  const card=(p,i)=>{
+    const name=L(p.name)||p.name.en||'', role=p.role?(L(p.role)||p.role.en||''):'';
+    const src=p.photo ? (/^(https?:|data:)/.test(p.photo) ? p.photo : teamRoot()+p.photo) : '';
+    const av = src
+      ? `<img src="${esc(src)}" alt="${esc(name)}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ini',textContent:'${esc(initials(p.name.en||name)).replace(/'/g,'')}'}))">`
+      : `<span class="ini">${esc(initials(p.name.en||name))}</span>`;
+    const li = p.linkedin ? `<a class="tli" href="${esc(p.linkedin)}" target="_blank" rel="noopener" aria-label="LinkedIn: ${esc(name)}"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.03-3.06-1.86-3.06-1.87 0-2.16 1.46-2.16 2.96V21H9z"/></svg></a>` : '';
+    return `<div class="tcard reveal" style="transition-delay:${(i%4)*70}ms"><div class="tav">${av}</div><h3>${esc(name)}</h3><p>${esc(role)}</p>${li}</div>`;
+  };
+  g.innerHTML = team.map(card).join('') + `<a class="tcard tjoin reveal" href="#join"><div class="tav"><span class="ini">+</span></div><h3>${t('team_join_t')}</h3><p>${t('team_join_d')}</p></a>`;
+}
+
+function renderHome(){
+  const count = id => ARTICLES.filter(a=>a.major===id).length;
+  app.innerHTML = `
+  <section class="hero" id="home">
+    <canvas id="stars"></canvas>
+    <div class="big-wrap">${MAJORS.map((m,i)=>`<div class="big" data-i="${i}">${planet(m)}</div>`).join('')}</div>
+    <div class="hero-inner">
+      <p class="eyebrow" id="heroEyebrow"></p>
+      <h1 class="hero-title" id="heroTitle"></h1>
+      <span class="rule"></span>
+      <p class="hero-desc" id="heroDesc"></p>
+      <a class="btn" id="heroBtn" href="#">${t('hero_explore')} ${arrow}</a>
+    </div>
+    <button class="side side-prev" id="prevBtn" aria-label="${t('hero_prev')}"><span class="mini"></span><span class="side-label"></span></button>
+    <button class="side side-next" id="nextBtn" aria-label="${t('hero_next')}"><span class="mini"></span><span class="side-label"></span></button>
+    <div class="dots" id="dots">${MAJORS.map((m,i)=>`<button aria-label="${esc(L(m.name))}" data-i="${i}"></button>`).join('')}</div>
+    <a class="scroll-cue" href="#mission" aria-label="Scroll"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EDECE8" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+  </section>
+
+  <section class="block" id="mission"><div class="wrap">
+    <p class="kicker reveal">${t('mission_kicker')}</p>
+    <h2 class="h2 reveal">${t('mission_title')}</h2>
+    <p class="lead reveal">${t('mission_text')}</p>
+    <div class="trio">
+      ${['adapt','apply','advance'].map((k,i)=>`<div class="card reveal" style="transition-delay:${i*90}ms"><div class="num">0${i+1}</div><h3>${t(k+'_t')}</h3><p>${t(k+'_d')}</p></div>`).join('')}
+    </div>
+  </div></section>
+
+  <section class="block dark-band" id="majors"><div class="wrap">
+    <p class="kicker reveal">${t('majors_kicker')}</p>
+    <h2 class="h2 reveal">${t('majors_title')}</h2>
+    <p class="lead reveal">${t('majors_text')}</p>
+    <div class="majors">
+      ${MAJORS.map((m,i)=>`<a class="mcard reveal" style="transition-delay:${i*80}ms" href="#major-${m.id}">
+        ${planet(m)}<h3>${esc(L(m.name))}</h3><p>${esc(L(m.desc))}</p>
+        <div class="meta"><span>${t('count',{n:count(m.id)})}</span><span>→</span></div></a>`).join('')}
+      <div class="mcard ghost reveal"><div class="ghost-orb">+</div><h3>${t('majors_more_t')}</h3><p>${t('majors_more_d')}</p></div>
+    </div>
+  </div></section>
+
+  <section class="block" id="guides"><div class="wrap">
+    <p class="kicker reveal">${t('featured_kicker')}</p>
+    <h2 class="h2 reveal">${t('featured_title')}</h2>
+    <div class="cards">${ARTICLES.filter(a=>a.featured).map(articleCard).join('')}</div>
+  </div></section>
+
+  <section class="block" id="about" style="padding-top:0"><div class="wrap about">
+    <div>
+      <p class="kicker reveal">${t('about_kicker')}</p>
+      <h2 class="h2 reveal">${t('about_title')}</h2>
+      <p class="lead reveal">${t('about_text')}</p>
+    </div>
+    <div class="about-art reveal" aria-hidden="true">
+      ${MAJORS.map((m,i)=>{const s=34+i*15;return `<div class="orbit" style="width:${s}%;height:${s}%;animation-duration:${18+i*9}s;${i%2?'animation-direction:reverse':''}">${planet(m)}</div>`}).join('')}
+      <svg width="70" height="70" viewBox="0 0 64 64"><path d="M8 56 L30 10 L52 56" fill="none" stroke="#EDECE8" stroke-width="5" stroke-linejoin="round"/><path d="M14 46 C26 44 40 34 52 18" fill="none" stroke="#9C9BD3" stroke-width="4" stroke-linecap="round"/><path d="M55 6 l1.6 4.4 4.4 1.6 -4.4 1.6 -1.6 4.4 -1.6 -4.4 -4.4 -1.6 4.4 -1.6z" fill="#9C9BD3"/></svg>
+    </div>
+  </div></section>
+
+  <section class="block" id="team" style="padding-top:0"><div class="wrap">
+    <p class="kicker reveal">${t('team_kicker')}</p>
+    <h2 class="h2 reveal">${t('team_title')}</h2>
+    <div class="team" id="teamGrid"></div>
+  </div></section>
+
+  <section class="block dark-band" id="join"><div class="wrap join">
+    <div>
+      <p class="kicker reveal">${t('join_kicker')}</p>
+      <h2 class="h2 reveal">${t('join_title')}</h2>
+      <p class="lead reveal">${t('join_text')}</p>
+    </div>
+    <div class="igcard reveal">
+      <div class="igicon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div>
+      <p class="ighandle" dir="ltr">@ahead_international</p>
+      <p>${t('ig_text')}</p>
+      <a class="btn" href="https://www.instagram.com/ahead_international/" target="_blank" rel="noopener">${t('ig_btn')} ${arrow}</a>
+    </div>
+  </div></section>`;
+
+  renderTeam();
+  $('#prevBtn').onclick = ()=>{ setHero(heroIdx-1); restartAuto(); };
+  $('#nextBtn').onclick = ()=>{ setHero(heroIdx+1); restartAuto(); };
+  $('#dots').onclick = e=>{ const b=e.target.closest('button'); if(b){ setHero(+b.dataset.i); restartAuto(); } };
+  // swipe
+  let sx=null; const hero=$('.hero');
+  hero.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+  hero.addEventListener('touchend',e=>{ if(sx==null)return; const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50){ const dir=(dx<0?1:-1)*(lang==='ar'?-1:1); setHero(heroIdx+dir); restartAuto(); } sx=null; });
+  setHero(heroIdx, true);
+  restartAuto();
+  starsStop = startStars($('#stars'));
+}
+
+function setHero(i, first){
+  const n = MAJORS.length; heroIdx = (i%n+n)%n;
+  const m = MAJORS[heroIdx], p = MAJORS[(heroIdx-1+n)%n], nx = MAJORS[(heroIdx+1)%n];
+  $('#heroEyebrow').textContent = `${t('eyebrow')}  ·  0${heroIdx+1} / 0${n}`;
+  const title = L(m.short);
+  $('#heroTitle').innerHTML = lang==='ar'
+    ? `<span class="word">${esc(title)}</span>`
+    : (()=>{ let k=0; return title.split(' ').map(w=>`<span class="w">${[...w].map(c=>`<span class="ch" style="--i:${k++}">${esc(c)}</span>`).join('')}</span>`).join(' '); })();
+  $('#heroTitle').classList.toggle('long', title.length > 12);
+  const d = $('#heroDesc'); d.textContent = L(m.desc); d.style.animation='none'; d.offsetWidth; d.style.animation='';
+  $('#heroBtn').href = `#major-${m.id}`;
+  [['#prevBtn',p],['#nextBtn',nx]].forEach(([s,mm])=>{
+    const b=$(s); b.querySelector('.mini').outerHTML = `<span class="mini">${planet(mm)}</span>`;
+    b.querySelector('.mini .planet').style.cssText += ';width:100%;height:100%';
+    b.querySelector('.side-label').textContent = L(mm.short);
+    if(!first){ b.classList.remove('swap'); b.offsetWidth; b.classList.add('swap'); }
+  });
+  document.querySelectorAll('.big').forEach(b=>b.classList.toggle('on', +b.dataset.i===heroIdx));
+  document.querySelectorAll('#dots button').forEach((b,k)=>b.classList.toggle('on',k===heroIdx));
+}
+function restartAuto(){
+  clearInterval(heroTimer);
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  heroTimer = setInterval(()=>{ if(!document.hidden && $('#heroTitle')) setHero(heroIdx+1); }, 7000);
+}
+
+function startStars(cv){
+  const ctx = cv.getContext('2d'); let w,h,stars=[],raf,mx=0,my=0,dpr=Math.min(devicePixelRatio||1,2);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){ w=cv.clientWidth; h=cv.clientHeight; cv.width=w*dpr; cv.height=h*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    stars = Array.from({length:Math.round(w*h/3800)},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.3+.2,z:Math.random()*.8+.2,p:Math.random()*6.28,s:Math.random()*.02+.005})); }
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    for(const s of stars){ s.p+=s.s; const a=.35+.65*Math.abs(Math.sin(s.p));
+      ctx.globalAlpha=a*s.z; ctx.fillStyle = s.r>1.2?'#C9C8EC':'#fff';
+      ctx.beginPath(); ctx.arc(s.x+mx*s.z*14, s.y+my*s.z*14, s.r, 0, 6.28); ctx.fill(); }
+    if(!reduce) raf=requestAnimationFrame(draw);
+  }
+  const mv = e=>{ mx=(e.clientX/innerWidth-.5); my=(e.clientY/innerHeight-.5); };
+  addEventListener('mousemove',mv); addEventListener('resize',size);
+  size(); draw();
+  return ()=>{ cancelAnimationFrame(raf); removeEventListener('mousemove',mv); removeEventListener('resize',size); };
+}
+
+/* ---------- MAJOR ---------- */
+function renderMajor(id){
+  const m = major(id); if(!m) return renderHome();
+  const items = ARTICLES.filter(a=>a.major===id);
+  app.innerHTML = `
+  <section class="mhero" style="--glow2:${m.c.dark}">
+    ${planet(m)}
+    <div class="wrap">
+      <a class="crumb" href="#majors">${backArrow} ${t('back_home')}</a>
+      <p class="eyebrow">${t('eyebrow')}</p>
+      <h1>${esc(L(m.name))}</h1>
+      <p>${esc(L(m.desc))}</p>
+    </div>
+  </section>
+  <section class="block"><div class="wrap">
+    <div class="list-head">
+      <h2 class="h2">${t('resources')}</h2>
+      <div class="filters" id="filters">
+        <button class="on" data-f="all">${t('filter_all')}</button>
+        <button data-f="guide">${t('type_guide')}</button>
+        <button data-f="article">${t('type_article')}</button>
+      </div>
+    </div>
+    <div class="cards" id="list">${items.map(articleCard).join('')}</div>
+  </div></section>`;
+  $('#filters').onclick = e=>{ const b=e.target.closest('button'); if(!b) return;
+    document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x===b));
+    const f=b.dataset.f; $('#list').innerHTML = items.filter(a=>f==='all'||a.type===f).map(articleCard).join('');
+    observe(); };
+}
+
+function blockHTML(b){
+  const li = x => Array.isArray(x) ? `<strong>${esc(x[0])}</strong> ${esc(x[1])}` : esc(x);
+  if(b.p) return `<p>${esc(b.p)}</p>`;
+  if(b.h) return `<h2>${esc(b.h)}</h2>`;
+  if(b.h3) return `<h3>${esc(b.h3)}</h3>`;
+  if(b.ul) return `<ul class="blist">${b.ul.map(x=>`<li>${Array.isArray(x)?`<strong>${esc(x[0])}:</strong> ${esc(x[1])}`:esc(x)}</li>`).join('')}</ul>`;
+  if(b.ol) return `<ol class="steps">${b.ol.map(x=>`<li><span>${li(x)}</span></li>`).join('')}</ol>`;
+  if(b.cards) return `<div class="tcards">${b.cards.map(([h,x])=>`<div><h3>${esc(h)}</h3><p>${esc(x)}</p></div>`).join('')}</div>`;
+  if(b.terms) return `<dl class="terms">${b.terms.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>`;
+  if(b.table) return `<div class="tbl"><table><thead><tr>${b.table.head.map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${b.table.rows.map(r=>`<tr>${r.map((c,i)=>i?`<td>${esc(c)}</td>`:`<th scope="row">${esc(c)}</th>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  if(b.callout) return `<div class="caution">${esc(b.callout)}</div>`;
+  if(b.prompt) return `<div class="prompt"><button class="copy" type="button">${t('copy')}</button><p class="ptext">${esc(b.prompt)}</p></div>`;
+  if(b.refs) return `<h2>${t('sources')}</h2><ol class="refs">${b.refs.map(r=>`<li>${esc(r.t)} <a href="${r.u}" target="_blank" rel="noopener">${esc(r.u.replace(/^https?:\/\//,'').replace(/\/$/,''))}</a></li>`).join('')}</ol>`;
+  return '';
+}
+function renderLongArticle(a,m){
+  app.innerHTML = `
+  <section class="ahero">${planet(m)}<div class="wrap">
+    <a class="crumb" href="#major-${m.id}">${backArrow} ${esc(L(m.name))}</a>
+    <div class="tagrow"><span class="tag" style="--c:${m.c.base}"><i></i>${t(a.type==='guide'?'type_guide':'type_article')}</span><span>${t('min_read',{n:a.mins})}</span></div>
+    <h1>${esc(L(a.title))}</h1>
+    <p class="asum">${esc(L(a.summary))}</p>
+  </div></section>
+  <article class="prose long" lang="en" dir="ltr">
+    ${lang==='ar'?`<p class="langnote" lang="ar" dir="rtl">${t('en_only')}</p>`:''}
+    ${a.tools?`<h2 style="margin-top:0">${t('art_tools')}</h2><div class="chips">${a.tools.map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:''}
+    ${a.body.map(blockHTML).join('')}
+    <a class="btn dark back" href="#major-${m.id}" dir="${lang==='ar'?'rtl':'ltr'}">${backArrow} ${esc(L(m.name))}</a>
+  </article>`;
+  app.querySelectorAll('.prompt .copy').forEach(btn=>btn.onclick=async()=>{
+    const p=btn.parentElement.querySelector('.ptext');
+    try{ await navigator.clipboard.writeText(p.textContent); btn.textContent=t('copied'); }
+    catch(err){ const r=document.createRange(); r.selectNodeContents(p); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }
+    setTimeout(()=>btn.textContent=t('copy'),1600);
+  });
+}
+
+/* ---------- ARTICLE ---------- */
+function renderArticle(id){
+  const a = ARTICLES.find(x=>x.id===id); if(!a) return renderHome();
+  const m = major(a.major);
+  if(a.body) return renderLongArticle(a,m);
+  app.innerHTML = `
+  <section class="ahero">${planet(m)}<div class="wrap">
+    <a class="crumb" href="#major-${m.id}">${backArrow} ${esc(L(m.name))}</a>
+    <div class="tagrow"><span class="tag" style="--c:${m.c.base}"><i></i>${t(a.type==='guide'?'type_guide':'type_article')}</span><span>${t('min_read',{n:a.mins})}</span></div>
+    <h1>${esc(L(a.title))}</h1>
+  </div></section>
+  <article class="prose">
+    <h2 style="margin-top:0">${t('art_task')}</h2>
+    <p class="intro">${esc(L(a.intro))}</p>
+    <h2>${t('art_tools')}</h2>
+    <div class="chips">${a.tools.map(x=>`<span>${esc(x)}</span>`).join('')}</div>
+    <h2>${t('art_steps')}</h2>
+    <ol class="steps">${L(a.steps).map(s=>`<li><span>${esc(s)}</span></li>`).join('')}</ol>
+    <h2>${t('art_prompt')}</h2>
+    <div class="prompt"><button class="copy" id="copyBtn">${t('copy')}</button><p id="promptText">${esc(L(a.prompt))}</p></div>
+    <h2>${t('art_caution')}</h2>
+    <div class="caution">${esc(L(a.caution))}</div>
+    <a class="btn dark back" href="#major-${m.id}">${backArrow} ${esc(L(m.name))}</a>
+  </article>`;
+  $('#copyBtn').onclick = async e=>{
+    try{ await navigator.clipboard.writeText($('#promptText').textContent); e.target.textContent=t('copied'); }
+    catch(err){ const r=document.createRange(); r.selectNodeContents($('#promptText')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }
+    setTimeout(()=>e.target.textContent=t('copy'),1600);
+  };
+}
+
+/* ---------- ROUTER ---------- */
+let io;
+function observe(){
+  io && io.disconnect();
+  io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.12});
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+}
+let currentView = '';
+function route(){
+  const h = location.hash.slice(1);
+  let view, scrollTo = null;
+  if(h.startsWith('major-')) view = h;
+  else if(h.startsWith('article-')) view = h;
+  else { view = 'home'; if(h && h!=='home') scrollTo = h; }
+  if(view !== currentView){
+    clearInterval(heroTimer); starsStop && starsStop(); starsStop=null;
+    if(view==='home') renderHome();
+    else if(view.startsWith('major-')) renderMajor(view.slice(6));
+    else renderArticle(view.slice(8));
+    currentView = view;
+    if(!scrollTo) window.scrollTo({top:0,behavior:'instant'});
+  }
+  if(scrollTo){ const el=document.getElementById(scrollTo); el && setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),30); }
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('on', a.getAttribute('href')==='#'+h));
+  $('#navLinks').classList.remove('open'); $('#menuBtn').setAttribute('aria-expanded','false');
+  observe();
+}
+addEventListener('hashchange', route);
+addEventListener('scroll', ()=>$('#nav').classList.toggle('solid', scrollY>40), {passive:true});
+addEventListener('keydown', e=>{
+  if(!$('#heroTitle')) return;
+  const fwd = lang==='ar' ? 'ArrowLeft' : 'ArrowRight', back = lang==='ar' ? 'ArrowRight' : 'ArrowLeft';
+  if(e.key===fwd){ setHero(heroIdx+1); restartAuto(); }
+  if(e.key===back){ setHero(heroIdx-1); restartAuto(); }
+});
+$('#menuBtn').onclick = ()=>{ const o=$('#navLinks').classList.toggle('open'); $('#menuBtn').setAttribute('aria-expanded',o); };
+$('#langBtn').onclick = ()=>{
+  if(PAGE_LANG){ location.href = (PAGE_LANG==='ar' ? '../' : 'ar/') + location.hash; return; }
+  lang = lang==='en' ? 'ar' : 'en';
+  try{ localStorage.setItem('ahead-lang',lang); }catch(e){}
+  staticText(); const y=scrollY; currentView=''; route(); window.scrollTo({top:y,behavior:'instant'});
+};
+staticText(); route();
+</script>
+</body>
+</html>
